@@ -2,29 +2,46 @@
 # -*- coding: utf-8 -*-
 # Конфигурация классов для генерации описания кластера kubernetes
 
+class Item:
+    types = {0:'application', 1:'pod', 2:'service', 3:'endpoint'}
+    def __init__(self, type, name, **kwargs):
+        self.type = type
+        self.name = name
+        self.var = kwargs
+
+    def __str__(self):
+        pass
+
+    def to_html(self):
+        pass
+
 
 class Environment:
     def __init__(self, env):
-        pass
+        self.vars = {}
+        for var in env:
+            self.vars[var['name']] = var.get('value', None)
 
 
 class ContainerCfg:
     def __init__(self, container):
         self.name = container['name']
         self.image = container['image']
-        self.env = Environment(container['env'])
+        if container.get('env', None):
+            #print(container['env'])
+            self.env = Environment(container['env'])
 
 
 class PodCfg:
     containers = []
-
     def __init__(self, pod):
-        self.name = pod['metadata']['labels']['app']
+        self.name = pod['metadata']['labels'].get('app', pod['metadata']['name'])
         for container in pod['spec']['containers']:
             self.containers.append(ContainerCfg(container))
 
 
 class ServiceCfg:
+    types = ['loadBalancer', 'nodePort', 'clusterIP']
     def __init__(self):
         pass
 
@@ -46,6 +63,7 @@ class Cluster:
     nginx = {}
 
     def __init__(self, pods=None, services=None, ingress=None, nginx=None):
+        self.applications = []
         if pods:
             self.get_pods(pods)
         if services:
