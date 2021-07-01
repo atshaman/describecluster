@@ -3,7 +3,8 @@
 # Конфигурация классов для генерации описания кластера kubernetes
 
 class Item:
-    types = {0:'application', 1:'pod', 2:'service', 3:'endpoint'}
+    types = {0: 'application', 1: 'pod', 2: 'service', 3: 'endpoint'}
+
     def __init__(self, type, name, **kwargs):
         self.type = type
         self.name = name
@@ -26,24 +27,38 @@ class Environment:
 class ContainerCfg:
     def __init__(self, container):
         self.name = container['name']
-        self.image = container['image']
+        self.image = container['image'].split(':')[-1]
         if container.get('env', None):
-            #print(container['env'])
             self.env = Environment(container['env'])
+
+    def __str__(self):
+        return self.image
 
 
 class PodCfg:
-    containers = []
     def __init__(self, pod):
         self.name = pod['metadata']['labels'].get('app', pod['metadata']['name'])
+        self.labels = pod['metadata'].get('labels', self.name)
+        self.containers = []
         for container in pod['spec']['containers']:
             self.containers.append(ContainerCfg(container))
+
+    def __str__(self):
+        return ','.join([str(container) for container in self.containers])
 
 
 class ServiceCfg:
     types = ['loadBalancer', 'nodePort', 'clusterIP']
-    def __init__(self):
-        pass
+
+    def __init__(self, service):
+        self.ports = []
+        self.name = service['metadata']['name']
+        self.selector = service['spec'].get('selector', None)
+        for port in service['spec']['ports']:
+            self.ports.append(port)
+
+    def __str__(self):
+        return ', '.join([f'{port.get("port")}:{port.get("nodePort", "None")}' for port in self.ports])
 
 
 class IngressCfg:
@@ -67,7 +82,7 @@ class Cluster:
         if pods:
             self.get_pods(pods)
         if services:
-            self.get_service(services)
+            self.get_services(services)
         if ingress:
             self.get_ingress(ingress)
         if self.nginx:
@@ -76,10 +91,12 @@ class Cluster:
     def get_pods(self, pods):
         for i in pods['items']:
             pod = PodCfg(i)
-            pods[pod.name] = pod
+            Cluster.pods[pod.name] = pod
 
     def get_services(self, services):
-        pass
+        for i in services['items']:
+            service = ServiceCfg(i)
+            Cluster.services[service.name] = service
 
     def get_ingress(self, ingress):
         pass
@@ -89,4 +106,4 @@ class Cluster:
 
 
 if __name__ == '__main__':
-    print('PyCharm')
+    print('Набор классов для реализации функциональности. Требуется запуск main.py')

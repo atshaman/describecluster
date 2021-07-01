@@ -27,3 +27,5 @@ if __name__ == '__main__':
         except json.JSONDecodeError as jserr:
             print('Файл {0} не является валидным json-файлом'.format(config.get('input', i)))
     cluster = classes.Cluster(**objects)
+    for i, j in cluster.services.items():
+        print(i, ':', j)
