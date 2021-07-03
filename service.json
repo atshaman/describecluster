@@ -1,0 +1,5206 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-08-17T12:33:59Z",
+                "name": "zif-dashboard",
+                "namespace": "dashboard",
+                "resourceVersion": "16870354",
+                "selfLink": "/api/v1/namespaces/dashboard/services/zif-dashboard",
+                "uid": "c5d4670c-2fbf-494d-949e-0721a0256577"
+            },
+            "spec": {
+                "clusterIP": "10.98.24.249",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "dashboard-api",
+                        "nodePort": 31809,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 10005
+                    }
+                ],
+                "selector": {
+                    "app": "dashboard"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T12:40:55Z",
+                "labels": {
+                    "component": "apiserver",
+                    "provider": "kubernetes"
+                },
+                "name": "kubernetes",
+                "namespace": "default",
+                "resourceVersion": "157",
+                "selfLink": "/api/v1/namespaces/default/services/kubernetes",
+                "uid": "145f3b0c-7794-4000-b9b3-1209cf41cbf3"
+            },
+            "spec": {
+                "clusterIP": "10.96.0.1",
+                "ports": [
+                    {
+                        "name": "https",
+                        "port": 443,
+                        "protocol": "TCP",
+                        "targetPort": 6443
+                    }
+                ],
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-09-10T07:59:20Z",
+                "labels": {
+                    "addonmanager.kubernetes.io/mode": "Reconcile",
+                    "k8s-app": "kibana-logging",
+                    "kubernetes.io/cluster-service": "true",
+                    "kubernetes.io/name": "Kibana"
+                },
+                "name": "kibana-logging",
+                "namespace": "efk",
+                "resourceVersion": "12966950",
+                "selfLink": "/api/v1/namespaces/efk/services/kibana-logging",
+                "uid": "311571dd-2d4c-48c6-a7e0-a7e9266e12b6"
+            },
+            "spec": {
+                "clusterIP": "10.97.114.84",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "nodePort": 32094,
+                        "port": 5601,
+                        "protocol": "TCP",
+                        "targetPort": "ui"
+                    }
+                ],
+                "selector": {
+                    "k8s-app": "kibana-logging"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-13T09:18:57Z",
+                "name": "event",
+                "namespace": "events",
+                "resourceVersion": "419842",
+                "selfLink": "/api/v1/namespaces/events/services/event",
+                "uid": "4773ed5a-3e90-4d4e-a0b1-ea4ee5f21863"
+            },
+            "spec": {
+                "clusterIP": "10.100.25.151",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "event-api",
+                        "nodePort": 31303,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "event"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-07-09T13:44:55Z",
+                "name": "attributes-directory",
+                "namespace": "frontend",
+                "resourceVersion": "4094821",
+                "selfLink": "/api/v1/namespaces/frontend/services/attributes-directory",
+                "uid": "8ef8eb2b-7dac-4511-9cf1-7b25be8baec8"
+            },
+            "spec": {
+                "clusterIP": "10.104.25.50",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "attributes-directory"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:13Z",
+                "labels": {
+                    "app": "caa-om"
+                },
+                "name": "caa-om",
+                "namespace": "frontend",
+                "resourceVersion": "7402",
+                "selfLink": "/api/v1/namespaces/frontend/services/caa-om",
+                "uid": "bd10d49b-3fea-4d16-92e3-bfb862473e0e"
+            },
+            "spec": {
+                "clusterIP": "10.105.43.117",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "caa-om"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:17Z",
+                "labels": {
+                    "app": "caa-tsds"
+                },
+                "name": "caa-tsds",
+                "namespace": "frontend",
+                "resourceVersion": "7479",
+                "selfLink": "/api/v1/namespaces/frontend/services/caa-tsds",
+                "uid": "30d0ef0c-02c3-45ab-a4c5-02a621b7e5af"
+            },
+            "spec": {
+                "clusterIP": "10.110.5.169",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "caa-tsds"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:04Z",
+                "name": "calcstore",
+                "namespace": "frontend",
+                "resourceVersion": "7244",
+                "selfLink": "/api/v1/namespaces/frontend/services/calcstore",
+                "uid": "98912352-ca15-4d64-9fe7-63ebc240e6b0"
+            },
+            "spec": {
+                "clusterIP": "10.102.47.191",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8101
+                    }
+                ],
+                "selector": {
+                    "app": "calcstore"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:03Z",
+                "name": "calculation-caa",
+                "namespace": "frontend",
+                "resourceVersion": "7223",
+                "selfLink": "/api/v1/namespaces/frontend/services/calculation-caa",
+                "uid": "94e01cc5-bdb9-4034-8b25-d839ee60de70"
+            },
+            "spec": {
+                "clusterIP": "10.98.195.223",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "calculation-caa"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:19Z",
+                "name": "datainput",
+                "namespace": "frontend",
+                "resourceVersion": "7516",
+                "selfLink": "/api/v1/namespaces/frontend/services/datainput",
+                "uid": "e1c54da8-6e91-48e5-b492-bccd70f5fac7"
+            },
+            "spec": {
+                "clusterIP": "10.99.179.105",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "datainput"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:05Z",
+                "name": "document-explorer",
+                "namespace": "frontend",
+                "resourceVersion": "7263",
+                "selfLink": "/api/v1/namespaces/frontend/services/document-explorer",
+                "uid": "0b4f32e4-5c31-4717-a577-05919ccef299"
+            },
+            "spec": {
+                "clusterIP": "10.106.29.59",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "document-explorer"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:06Z",
+                "labels": {
+                    "app": "ef-caa"
+                },
+                "name": "ef-caa",
+                "namespace": "frontend",
+                "resourceVersion": "7280",
+                "selfLink": "/api/v1/namespaces/frontend/services/ef-caa",
+                "uid": "a86a8823-ed03-434c-bc17-511ce1bf1f95"
+            },
+            "spec": {
+                "clusterIP": "10.107.49.67",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "ef-caa"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:07Z",
+                "name": "json-server",
+                "namespace": "frontend",
+                "resourceVersion": "7304",
+                "selfLink": "/api/v1/namespaces/frontend/services/json-server",
+                "uid": "575c2448-8b07-4327-95f5-5e6fec7f5998"
+            },
+            "spec": {
+                "clusterIP": "10.100.83.201",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 80
+                    }
+                ],
+                "selector": {
+                    "app": "json-server"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:20Z",
+                "labels": {
+                    "app": "meb-caa"
+                },
+                "name": "meb-caa",
+                "namespace": "frontend",
+                "resourceVersion": "7532",
+                "selfLink": "/api/v1/namespaces/frontend/services/meb-caa",
+                "uid": "f100f94a-b0e6-4871-86c7-9792acb8948d"
+            },
+            "spec": {
+                "clusterIP": "10.102.30.3",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 80
+                    }
+                ],
+                "selector": {
+                    "app": "meb-caa"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:08Z",
+                "labels": {
+                    "app": "mnemo-editor"
+                },
+                "name": "mnemo-editor",
+                "namespace": "frontend",
+                "resourceVersion": "7326",
+                "selfLink": "/api/v1/namespaces/frontend/services/mnemo-editor",
+                "uid": "c9e8e5d8-3ce4-451f-8886-db7f58453792"
+            },
+            "spec": {
+                "clusterIP": "10.107.255.110",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "mnemo-editor"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:10Z",
+                "labels": {
+                    "app": "mnemoschemes-service"
+                },
+                "name": "mnemoschemes-service",
+                "namespace": "frontend",
+                "resourceVersion": "7347",
+                "selfLink": "/api/v1/namespaces/frontend/services/mnemoschemes-service",
+                "uid": "3c11ca96-8978-4171-9c1f-3efa5a12d2c1"
+            },
+            "spec": {
+                "clusterIP": "10.98.25.243",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8090
+                    }
+                ],
+                "selector": {
+                    "app": "mnemoschemes-service"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:11Z",
+                "name": "nifi-caa",
+                "namespace": "frontend",
+                "resourceVersion": "7364",
+                "selfLink": "/api/v1/namespaces/frontend/services/nifi-caa",
+                "uid": "6c2ea3e1-c681-4129-955a-c844bc2700e1"
+            },
+            "spec": {
+                "clusterIP": "10.100.120.52",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "nifi-caa"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:12Z",
+                "labels": {
+                    "app": "notification-ui"
+                },
+                "name": "notification-ui",
+                "namespace": "frontend",
+                "resourceVersion": "7384",
+                "selfLink": "/api/v1/namespaces/frontend/services/notification-ui",
+                "uid": "835f41bc-e2ac-426f-88b0-3cbf75b7a98e"
+            },
+            "spec": {
+                "clusterIP": "10.107.159.197",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "notification-ui"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-07-06T10:45:59Z",
+                "name": "portal-settings",
+                "namespace": "frontend",
+                "resourceVersion": "3658659",
+                "selfLink": "/api/v1/namespaces/frontend/services/portal-settings",
+                "uid": "14bdc3cf-9312-455a-810d-06bef90fce27"
+            },
+            "spec": {
+                "clusterIP": "10.103.228.62",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8091
+                    }
+                ],
+                "selector": {
+                    "app": "portal-settings"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:18Z",
+                "labels": {
+                    "app": "report-editor"
+                },
+                "name": "report-editor",
+                "namespace": "frontend",
+                "resourceVersion": "7493",
+                "selfLink": "/api/v1/namespaces/frontend/services/report-editor",
+                "uid": "4d29aeea-4bf8-4375-b388-f892fa44d026"
+            },
+            "spec": {
+                "clusterIP": "10.100.83.239",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "report-editor"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:14Z",
+                "name": "root-shell",
+                "namespace": "frontend",
+                "resourceVersion": "7431",
+                "selfLink": "/api/v1/namespaces/frontend/services/root-shell",
+                "uid": "990a98a9-b511-447a-a722-224a2033f0d9"
+            },
+            "spec": {
+                "clusterIP": "10.111.101.207",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "root-shell"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:15Z",
+                "labels": {
+                    "app": "root-spa"
+                },
+                "name": "root-spa",
+                "namespace": "frontend",
+                "resourceVersion": "7456",
+                "selfLink": "/api/v1/namespaces/frontend/services/root-spa",
+                "uid": "0a01c58f-6333-4f72-94ab-7093fe745e2a"
+            },
+            "spec": {
+                "clusterIP": "10.100.105.229",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "nodePort": 30976,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "root-spa"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-07-02T09:38:05Z",
+                "name": "security-settings",
+                "namespace": "frontend",
+                "resourceVersion": "4623533",
+                "selfLink": "/api/v1/namespaces/frontend/services/security-settings",
+                "uid": "7e70d88a-28dc-42bb-b569-f3cd47c1dc06"
+            },
+            "spec": {
+                "clusterIP": "10.98.67.54",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "nodePort": 30101,
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "security-settings"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2021-03-17T05:05:48Z",
+                "labels": {
+                    "app": "zif-mnemoschemes-storage"
+                },
+                "name": "zif-mnemoschemes-storage",
+                "namespace": "frontend",
+                "resourceVersion": "39200308",
+                "selfLink": "/api/v1/namespaces/frontend/services/zif-mnemoschemes-storage",
+                "uid": "c10e8ba0-f3ab-4504-bbab-c04e472e2a17"
+            },
+            "spec": {
+                "clusterIP": "10.106.103.69",
+                "ports": [
+                    {
+                        "name": "zif-mnemoschemes-storage-api",
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "zif-mnemoschemes-storage"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-08-17T13:24:51Z",
+                "labels": {
+                    "app": "zui-app-dashboard-dx"
+                },
+                "name": "zui-app-dashboard-dx",
+                "namespace": "frontend",
+                "resourceVersion": "9597559",
+                "selfLink": "/api/v1/namespaces/frontend/services/zui-app-dashboard-dx",
+                "uid": "376791f7-059c-4e41-8f45-2c0ac66ff467"
+            },
+            "spec": {
+                "clusterIP": "10.108.146.211",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "zui-app-dashboard-dx"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-09-25T12:28:47Z",
+                "labels": {
+                    "app": "zui-app-ee"
+                },
+                "name": "zui-app-ee",
+                "namespace": "frontend",
+                "resourceVersion": "15111030",
+                "selfLink": "/api/v1/namespaces/frontend/services/zui-app-ee",
+                "uid": "a4447cb0-e280-480f-9501-27cdb931bfcc"
+            },
+            "spec": {
+                "clusterIP": "10.102.148.244",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "zui-app-ee"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"creationTimestamp\":\"2020-06-10T13:45:13Z\",\"labels\":{\"app\":\"zui-app-ps-bom\"},\"name\":\"zui-app-ps-bom\",\"namespace\":\"frontend\",\"resourceVersion\":\"7402\",\"selfLink\":\"/api/v1/namespaces/frontend/services/caa-om\",\"uid\":\"bd10d49b-3fea-4d16-92e3-bfb862473e0e\"},\"spec\":{\"ports\":[{\"port\":80,\"protocol\":\"TCP\",\"targetPort\":8080}],\"selector\":{\"app\":\"zui-app-ps-bom\"},\"sessionAffinity\":\"None\",\"type\":\"ClusterIP\"},\"status\":{\"loadBalancer\":{}}}\n"
+                },
+                "creationTimestamp": "2021-01-28T13:51:58Z",
+                "labels": {
+                    "app": "zui-app-ps-bom"
+                },
+                "name": "zui-app-ps-bom",
+                "namespace": "frontend",
+                "resourceVersion": "32616333",
+                "selfLink": "/api/v1/namespaces/frontend/services/zui-app-ps-bom",
+                "uid": "8855a0bb-f74a-4584-b066-41a7b0e19193"
+            },
+            "spec": {
+                "clusterIP": "10.104.215.176",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "zui-app-ps-bom"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"zui-pkg-ps-widgets\"},\"name\":\"zui-pkg-ps-widgets\",\"namespace\":\"frontend\",\"resourceVersion\":\"15111030\"},\"spec\":{\"ports\":[{\"port\":80,\"protocol\":\"TCP\",\"targetPort\":8080}],\"selector\":{\"app\":\"zui-pkg-ps-widgets\"},\"sessionAffinity\":\"None\",\"type\":\"ClusterIP\"},\"status\":{\"loadBalancer\":{}}}\n"
+                },
+                "creationTimestamp": "2020-12-25T07:14:15Z",
+                "labels": {
+                    "app": "zui-pkg-ps-widgets"
+                },
+                "name": "zui-pkg-ps-widgets",
+                "namespace": "frontend",
+                "resourceVersion": "27556821",
+                "selfLink": "/api/v1/namespaces/frontend/services/zui-pkg-ps-widgets",
+                "uid": "f0190dab-20e5-4869-b912-ecf6e89a0311"
+            },
+            "spec": {
+                "clusterIP": "10.101.254.38",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "zui-pkg-ps-widgets"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"creationTimestamp\":\"2021-03-04T08:52:08Z\",\"name\":\"zui-pkg-statistical-control\",\"namespace\":\"frontend\"},\"spec\":{\"ports\":[{\"port\":80,\"protocol\":\"TCP\",\"targetPort\":8080}],\"selector\":{\"app\":\"zui-pkg-statistical-control\"},\"sessionAffinity\":\"None\",\"type\":\"ClusterIP\"},\"status\":{\"loadBalancer\":{}}}\n"
+                },
+                "creationTimestamp": "2021-03-09T06:58:55Z",
+                "name": "zui-pkg-statistical-control",
+                "namespace": "frontend",
+                "resourceVersion": "38079544",
+                "selfLink": "/api/v1/namespaces/frontend/services/zui-pkg-statistical-control",
+                "uid": "bb00d8bc-3211-4a7f-ab12-71b96d0ee8cc"
+            },
+            "spec": {
+                "clusterIP": "10.109.212.248",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "zui-pkg-statistical-control"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:45Z",
+                "name": "kafka-connect",
+                "namespace": "kafka",
+                "resourceVersion": "7918",
+                "selfLink": "/api/v1/namespaces/kafka/services/kafka-connect",
+                "uid": "105ee4d0-aa6a-4ca9-9af6-bde8cdc14a92"
+            },
+            "spec": {
+                "clusterIP": "10.107.144.132",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "kafka-connect",
+                        "nodePort": 31228,
+                        "port": 8083,
+                        "protocol": "TCP",
+                        "targetPort": 8083
+                    }
+                ],
+                "selector": {
+                    "app": "kafka-connect"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-19T10:29:50Z",
+                "name": "kafka-connect-ui",
+                "namespace": "kafka",
+                "resourceVersion": "1288988",
+                "selfLink": "/api/v1/namespaces/kafka/services/kafka-connect-ui",
+                "uid": "3b149925-2fa7-4992-a946-e46f56d1b0fa"
+            },
+            "spec": {
+                "clusterIP": "10.98.145.190",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "kafka-connect-ui-api",
+                        "nodePort": 31402,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8000
+                    }
+                ],
+                "selector": {
+                    "app": "kafka-connect-ui"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-19T10:31:36Z",
+                "name": "kafka-registry-ui",
+                "namespace": "kafka",
+                "resourceVersion": "1289181",
+                "selfLink": "/api/v1/namespaces/kafka/services/kafka-registry-ui",
+                "uid": "02b6766e-7b9b-4168-8393-7c68b9116778"
+            },
+            "spec": {
+                "clusterIP": "10.104.107.147",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "kafka-registry-ui-api",
+                        "nodePort": 31403,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8000
+                    }
+                ],
+                "selector": {
+                    "app": "kafka-registry-ui"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:45Z",
+                "name": "kafka-registry1",
+                "namespace": "kafka",
+                "resourceVersion": "7914",
+                "selfLink": "/api/v1/namespaces/kafka/services/kafka-registry1",
+                "uid": "18580d82-d6cf-48b9-900d-d5ebcc6f725d"
+            },
+            "spec": {
+                "clusterIP": "10.97.58.239",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "kafka-registry1",
+                        "nodePort": 30117,
+                        "port": 8081,
+                        "protocol": "TCP",
+                        "targetPort": 8081
+                    }
+                ],
+                "selector": {
+                    "app": "kafka-registry1"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:45Z",
+                "name": "kafka-rest1",
+                "namespace": "kafka",
+                "resourceVersion": "7910",
+                "selfLink": "/api/v1/namespaces/kafka/services/kafka-rest1",
+                "uid": "d91c085a-00d7-4774-b4bf-0e3f13198a54"
+            },
+            "spec": {
+                "clusterIP": "10.100.221.32",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "kafka-rest1",
+                        "nodePort": 30587,
+                        "port": 8082,
+                        "protocol": "TCP",
+                        "targetPort": 8082
+                    }
+                ],
+                "selector": {
+                    "app": "kafka-rest1"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:45Z",
+                "name": "kafka-ui",
+                "namespace": "kafka",
+                "resourceVersion": "7906",
+                "selfLink": "/api/v1/namespaces/kafka/services/kafka-ui",
+                "uid": "f0954401-3884-42e9-9de6-14755ad8e381"
+            },
+            "spec": {
+                "clusterIP": "10.98.94.223",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "kafka-ui",
+                        "nodePort": 31598,
+                        "port": 8000,
+                        "protocol": "TCP",
+                        "targetPort": 8000
+                    }
+                ],
+                "selector": {
+                    "app": "kafka-ui"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:44Z",
+                "name": "kafka1",
+                "namespace": "kafka",
+                "resourceVersion": "12024215",
+                "selfLink": "/api/v1/namespaces/kafka/services/kafka1",
+                "uid": "67892e09-e0eb-49c6-8c63-14ca24495d33"
+            },
+            "spec": {
+                "clusterIP": "10.105.9.49",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "9092",
+                        "nodePort": 30093,
+                        "port": 9092,
+                        "protocol": "TCP",
+                        "targetPort": 9092
+                    },
+                    {
+                        "name": "30092",
+                        "nodePort": 30092,
+                        "port": 30092,
+                        "protocol": "TCP",
+                        "targetPort": 30092
+                    }
+                ],
+                "selector": {
+                    "app": "kafka-1"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:44Z",
+                "name": "zookeeper1",
+                "namespace": "kafka",
+                "resourceVersion": "12016485",
+                "selfLink": "/api/v1/namespaces/kafka/services/zookeeper1",
+                "uid": "0fc0619b-72e6-4b49-bd84-72e9d2ff3ba8"
+            },
+            "spec": {
+                "clusterIP": "10.107.92.119",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "port-2181",
+                        "nodePort": 30968,
+                        "port": 2181,
+                        "protocol": "TCP",
+                        "targetPort": 2181
+                    },
+                    {
+                        "name": "port-2888",
+                        "nodePort": 30352,
+                        "port": 2888,
+                        "protocol": "TCP",
+                        "targetPort": 2888
+                    },
+                    {
+                        "name": "port-3888",
+                        "nodePort": 30347,
+                        "port": 3888,
+                        "protocol": "TCP",
+                        "targetPort": 3888
+                    }
+                ],
+                "selector": {
+                    "app": "zookeeper-1"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:44Z",
+                "name": "zookeeper2",
+                "namespace": "kafka",
+                "resourceVersion": "7888",
+                "selfLink": "/api/v1/namespaces/kafka/services/zookeeper2",
+                "uid": "70d2a31e-684b-41cc-b1d3-dc6d3e06261a"
+            },
+            "spec": {
+                "clusterIP": "10.105.164.227",
+                "ports": [
+                    {
+                        "name": "port-2181",
+                        "port": 2181,
+                        "protocol": "TCP",
+                        "targetPort": 2181
+                    },
+                    {
+                        "name": "port-2888",
+                        "port": 2888,
+                        "protocol": "TCP",
+                        "targetPort": 2888
+                    },
+                    {
+                        "name": "port-3888",
+                        "port": 3888,
+                        "protocol": "TCP",
+                        "targetPort": 3888
+                    }
+                ],
+                "selector": {
+                    "app": "zookeeper-2"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:45Z",
+                "name": "zookeeper3",
+                "namespace": "kafka",
+                "resourceVersion": "7899",
+                "selfLink": "/api/v1/namespaces/kafka/services/zookeeper3",
+                "uid": "8f82f6ee-c918-43f9-8e0e-429e15448c9f"
+            },
+            "spec": {
+                "clusterIP": "10.110.211.199",
+                "ports": [
+                    {
+                        "name": "port-2181",
+                        "port": 2181,
+                        "protocol": "TCP",
+                        "targetPort": 2181
+                    },
+                    {
+                        "name": "port-2888",
+                        "port": 2888,
+                        "protocol": "TCP",
+                        "targetPort": 2888
+                    },
+                    {
+                        "name": "port-3888",
+                        "port": 3888,
+                        "protocol": "TCP",
+                        "targetPort": 3888
+                    }
+                ],
+                "selector": {
+                    "app": "zookeeper-3"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"keycloak\"},\"name\":\"keycloak\",\"namespace\":\"keycloak\",\"resourceVersion\":\"34280874\"},\"spec\":{\"ports\":[{\"name\":\"keycloak-http\",\"port\":80,\"protocol\":\"TCP\",\"targetPort\":8080},{\"name\":\"keycloak-https\",\"port\":443,\"protocol\":\"TCP\",\"targetPort\":8443}],\"selector\":{\"app\":\"keycloak\"}}}\n"
+                },
+                "creationTimestamp": "2021-02-09T11:42:23Z",
+                "labels": {
+                    "app": "keycloak"
+                },
+                "name": "keycloak",
+                "namespace": "keycloak",
+                "resourceVersion": "34284704",
+                "selfLink": "/api/v1/namespaces/keycloak/services/keycloak",
+                "uid": "b620303b-aaa1-4fa3-8630-73c177f0abc1"
+            },
+            "spec": {
+                "clusterIP": "10.108.141.188",
+                "ports": [
+                    {
+                        "name": "keycloak-http",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    },
+                    {
+                        "name": "keycloak-https",
+                        "port": 443,
+                        "protocol": "TCP",
+                        "targetPort": 8443
+                    }
+                ],
+                "selector": {
+                    "app": "keycloak"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T12:41:01Z",
+                "labels": {
+                    "k8s-app": "calico-etcd"
+                },
+                "name": "calico-etcd",
+                "namespace": "kube-system",
+                "resourceVersion": "253",
+                "selfLink": "/api/v1/namespaces/kube-system/services/calico-etcd",
+                "uid": "5e492638-2b9f-4d94-9742-d10e15235397"
+            },
+            "spec": {
+                "clusterIP": "10.96.232.136",
+                "ports": [
+                    {
+                        "port": 6666,
+                        "protocol": "TCP",
+                        "targetPort": 6666
+                    }
+                ],
+                "selector": {
+                    "k8s-app": "calico-etcd"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "prometheus.io/port": "9153",
+                    "prometheus.io/scrape": "true"
+                },
+                "creationTimestamp": "2020-06-10T12:40:56Z",
+                "labels": {
+                    "k8s-app": "kube-dns",
+                    "kubernetes.io/cluster-service": "true",
+                    "kubernetes.io/name": "KubeDNS"
+                },
+                "name": "kube-dns",
+                "namespace": "kube-system",
+                "resourceVersion": "190",
+                "selfLink": "/api/v1/namespaces/kube-system/services/kube-dns",
+                "uid": "82137d73-9ef3-4a59-97d5-8860eafc09fd"
+            },
+            "spec": {
+                "clusterIP": "10.96.0.10",
+                "ports": [
+                    {
+                        "name": "dns",
+                        "port": 53,
+                        "protocol": "UDP",
+                        "targetPort": 53
+                    },
+                    {
+                        "name": "dns-tcp",
+                        "port": 53,
+                        "protocol": "TCP",
+                        "targetPort": 53
+                    },
+                    {
+                        "name": "metrics",
+                        "port": 9153,
+                        "protocol": "TCP",
+                        "targetPort": 9153
+                    }
+                ],
+                "selector": {
+                    "k8s-app": "kube-dns"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T12:41:04Z",
+                "labels": {
+                    "kubernetes.io/cluster-service": "true",
+                    "kubernetes.io/name": "Metrics-server"
+                },
+                "name": "metrics-server",
+                "namespace": "kube-system",
+                "resourceVersion": "281",
+                "selfLink": "/api/v1/namespaces/kube-system/services/metrics-server",
+                "uid": "8410dcc8-3554-4417-8394-404f395645ad"
+            },
+            "spec": {
+                "clusterIP": "10.98.184.205",
+                "ports": [
+                    {
+                        "port": 443,
+                        "protocol": "TCP",
+                        "targetPort": 443
+                    }
+                ],
+                "selector": {
+                    "k8s-app": "metrics-server"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T12:41:05Z",
+                "labels": {
+                    "k8s-app": "dashboard-metrics-scraper"
+                },
+                "name": "dashboard-metrics-scraper",
+                "namespace": "kubernetes-dashboard",
+                "resourceVersion": "305",
+                "selfLink": "/api/v1/namespaces/kubernetes-dashboard/services/dashboard-metrics-scraper",
+                "uid": "e9060369-470b-4eee-9b71-e477874e814a"
+            },
+            "spec": {
+                "clusterIP": "10.98.208.163",
+                "ports": [
+                    {
+                        "port": 8000,
+                        "protocol": "TCP",
+                        "targetPort": 8000
+                    }
+                ],
+                "selector": {
+                    "k8s-app": "dashboard-metrics-scraper"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T12:41:05Z",
+                "labels": {
+                    "k8s-app": "kubernetes-dashboard"
+                },
+                "name": "kubernetes-dashboard",
+                "namespace": "kubernetes-dashboard",
+                "resourceVersion": "293",
+                "selfLink": "/api/v1/namespaces/kubernetes-dashboard/services/kubernetes-dashboard",
+                "uid": "4bfd9b5a-b6cd-404c-adb9-1f3af11dcfa4"
+            },
+            "spec": {
+                "clusterIP": "10.111.175.79",
+                "ports": [
+                    {
+                        "port": 443,
+                        "protocol": "TCP",
+                        "targetPort": 8443
+                    }
+                ],
+                "selector": {
+                    "k8s-app": "kubernetes-dashboard"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:39Z",
+                "name": "nifi",
+                "namespace": "nifi",
+                "resourceVersion": "43005707",
+                "selfLink": "/api/v1/namespaces/nifi/services/nifi",
+                "uid": "f992372e-eb47-4f1a-ba6c-de3520154f42"
+            },
+            "spec": {
+                "clusterIP": "10.104.213.65",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "8081",
+                        "nodePort": 31401,
+                        "port": 8081,
+                        "protocol": "TCP",
+                        "targetPort": 8081
+                    },
+                    {
+                        "name": "15001",
+                        "nodePort": 32569,
+                        "port": 15001,
+                        "protocol": "TCP",
+                        "targetPort": 15001
+                    },
+                    {
+                        "name": "1337",
+                        "nodePort": 31337,
+                        "port": 1337,
+                        "protocol": "TCP",
+                        "targetPort": 1337
+                    },
+                    {
+                        "name": "1373",
+                        "nodePort": 31373,
+                        "port": 1373,
+                        "protocol": "TCP",
+                        "targetPort": 1373
+                    },
+                    {
+                        "name": "1374",
+                        "nodePort": 31374,
+                        "port": 1374,
+                        "protocol": "TCP",
+                        "targetPort": 1374
+                    },
+                    {
+                        "name": "1375",
+                        "nodePort": 31375,
+                        "port": 1375,
+                        "protocol": "TCP",
+                        "targetPort": 1375
+                    },
+                    {
+                        "name": "1376",
+                        "nodePort": 31376,
+                        "port": 1376,
+                        "protocol": "TCP",
+                        "targetPort": 1376
+                    },
+                    {
+                        "name": "1377",
+                        "nodePort": 31377,
+                        "port": 1377,
+                        "protocol": "TCP",
+                        "targetPort": 1377
+                    },
+                    {
+                        "name": "1378",
+                        "nodePort": 31378,
+                        "port": 1378,
+                        "protocol": "TCP",
+                        "targetPort": 1378
+                    },
+                    {
+                        "name": "1338",
+                        "nodePort": 31338,
+                        "port": 1338,
+                        "protocol": "TCP",
+                        "targetPort": 1338
+                    },
+                    {
+                        "name": "1339",
+                        "nodePort": 31339,
+                        "port": 1339,
+                        "protocol": "TCP",
+                        "targetPort": 1339
+                    },
+                    {
+                        "name": "1448",
+                        "nodePort": 31448,
+                        "port": 1448,
+                        "protocol": "TCP",
+                        "targetPort": 1448
+                    },
+                    {
+                        "name": "1340",
+                        "nodePort": 31340,
+                        "port": 1340,
+                        "protocol": "TCP",
+                        "targetPort": 1340
+                    },
+                    {
+                        "name": "1341",
+                        "nodePort": 31341,
+                        "port": 1341,
+                        "protocol": "TCP",
+                        "targetPort": 1341
+                    },
+                    {
+                        "name": "1342",
+                        "nodePort": 31342,
+                        "port": 1342,
+                        "protocol": "TCP",
+                        "targetPort": 1342
+                    },
+                    {
+                        "name": "1343",
+                        "nodePort": 31343,
+                        "port": 1343,
+                        "protocol": "TCP",
+                        "targetPort": 1343
+                    },
+                    {
+                        "name": "1344",
+                        "nodePort": 31344,
+                        "port": 1344,
+                        "protocol": "TCP",
+                        "targetPort": 1344
+                    },
+                    {
+                        "name": "1351",
+                        "nodePort": 31351,
+                        "port": 1351,
+                        "protocol": "TCP",
+                        "targetPort": 1351
+                    },
+                    {
+                        "name": "1352",
+                        "nodePort": 31352,
+                        "port": 1352,
+                        "protocol": "TCP",
+                        "targetPort": 1352
+                    },
+                    {
+                        "name": "1353",
+                        "nodePort": 31353,
+                        "port": 1353,
+                        "protocol": "TCP",
+                        "targetPort": 1353
+                    },
+                    {
+                        "name": "1354",
+                        "nodePort": 31354,
+                        "port": 1354,
+                        "protocol": "TCP",
+                        "targetPort": 1354
+                    },
+                    {
+                        "name": "1355",
+                        "nodePort": 31355,
+                        "port": 1355,
+                        "protocol": "TCP",
+                        "targetPort": 1355
+                    },
+                    {
+                        "name": "1356",
+                        "nodePort": 31356,
+                        "port": 1356,
+                        "protocol": "TCP",
+                        "targetPort": 1356
+                    },
+                    {
+                        "name": "1357",
+                        "nodePort": 31357,
+                        "port": 1357,
+                        "protocol": "TCP",
+                        "targetPort": 1357
+                    },
+                    {
+                        "name": "1358",
+                        "nodePort": 31358,
+                        "port": 1358,
+                        "protocol": "TCP",
+                        "targetPort": 1358
+                    },
+                    {
+                        "name": "1359",
+                        "nodePort": 31359,
+                        "port": 1359,
+                        "protocol": "TCP",
+                        "targetPort": 1359
+                    },
+                    {
+                        "name": "1392",
+                        "nodePort": 31392,
+                        "port": 1392,
+                        "protocol": "TCP",
+                        "targetPort": 1392
+                    },
+                    {
+                        "name": "1393",
+                        "nodePort": 31393,
+                        "port": 1393,
+                        "protocol": "TCP",
+                        "targetPort": 1393
+                    },
+                    {
+                        "name": "1345",
+                        "nodePort": 31345,
+                        "port": 1345,
+                        "protocol": "TCP",
+                        "targetPort": 1345
+                    },
+                    {
+                        "name": "1346",
+                        "nodePort": 31346,
+                        "port": 1346,
+                        "protocol": "TCP",
+                        "targetPort": 1346
+                    },
+                    {
+                        "name": "1347",
+                        "nodePort": 31347,
+                        "port": 1347,
+                        "protocol": "TCP",
+                        "targetPort": 1347
+                    },
+                    {
+                        "name": "1348",
+                        "nodePort": 31348,
+                        "port": 1348,
+                        "protocol": "TCP",
+                        "targetPort": 1348
+                    },
+                    {
+                        "name": "1390",
+                        "nodePort": 31390,
+                        "port": 1390,
+                        "protocol": "TCP",
+                        "targetPort": 1390
+                    },
+                    {
+                        "name": "1391",
+                        "nodePort": 31391,
+                        "port": 1391,
+                        "protocol": "TCP",
+                        "targetPort": 1391
+                    },
+                    {
+                        "name": "1400",
+                        "nodePort": 31400,
+                        "port": 1400,
+                        "protocol": "TCP",
+                        "targetPort": 1400
+                    }
+                ],
+                "selector": {
+                    "app": "nifi"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:44:39Z",
+                "labels": {
+                    "app": "b2mml"
+                },
+                "name": "b2mml",
+                "namespace": "object-model",
+                "resourceVersion": "6925",
+                "selfLink": "/api/v1/namespaces/object-model/services/b2mml",
+                "uid": "b56676eb-1348-4b70-8b0e-1e2bb239d649"
+            },
+            "spec": {
+                "clusterIP": "10.107.75.156",
+                "ports": [
+                    {
+                        "name": "b2mml-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "b2mml"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:44:41Z",
+                "name": "datareferences",
+                "namespace": "object-model",
+                "resourceVersion": "6943",
+                "selfLink": "/api/v1/namespaces/object-model/services/datareferences",
+                "uid": "36bf91a4-ecfb-424e-a7e0-69d297331f89"
+            },
+            "spec": {
+                "clusterIP": "10.100.11.166",
+                "ports": [
+                    {
+                        "name": "datareferences-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "datareferences"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:44:42Z",
+                "name": "directories",
+                "namespace": "object-model",
+                "resourceVersion": "6964",
+                "selfLink": "/api/v1/namespaces/object-model/services/directories",
+                "uid": "86002e6c-2745-4a9a-912b-8733a4efa139"
+            },
+            "spec": {
+                "clusterIP": "10.101.165.22",
+                "ports": [
+                    {
+                        "name": "directories-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "directories"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-13T20:38:28Z",
+                "labels": {
+                    "app": "graphql"
+                },
+                "name": "graphql",
+                "namespace": "object-model",
+                "resourceVersion": "11684004",
+                "selfLink": "/api/v1/namespaces/object-model/services/graphql",
+                "uid": "7400947a-cd80-4a99-8108-b41a72aceee2"
+            },
+            "spec": {
+                "clusterIP": "10.96.58.205",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "graphql-api",
+                        "nodePort": 31505,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "graphql"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-13T20:38:27Z",
+                "name": "hashtags",
+                "namespace": "object-model",
+                "resourceVersion": "486965",
+                "selfLink": "/api/v1/namespaces/object-model/services/hashtags",
+                "uid": "a70bc873-1c96-4dab-8707-20b5689a15d1"
+            },
+            "spec": {
+                "clusterIP": "10.100.174.177",
+                "ports": [
+                    {
+                        "name": "hashtags-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "hashtags"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-08-28T09:03:57Z",
+                "labels": {
+                    "app": "jaeger",
+                    "app.kubernetes.io/component": "agent",
+                    "app.kubernetes.io/name": "jaeger"
+                },
+                "name": "jaeger-agent",
+                "namespace": "object-model",
+                "resourceVersion": "11130595",
+                "selfLink": "/api/v1/namespaces/object-model/services/jaeger-agent",
+                "uid": "7241a6f2-dbca-4091-b81b-1e56c2394206"
+            },
+            "spec": {
+                "clusterIP": "None",
+                "ports": [
+                    {
+                        "name": "agent-zipkin-thrift",
+                        "port": 5775,
+                        "protocol": "UDP",
+                        "targetPort": 5775
+                    },
+                    {
+                        "name": "agent-compact",
+                        "port": 6831,
+                        "protocol": "UDP",
+                        "targetPort": 6831
+                    },
+                    {
+                        "name": "agent-binary",
+                        "port": 6832,
+                        "protocol": "UDP",
+                        "targetPort": 6832
+                    },
+                    {
+                        "name": "agent-configs",
+                        "port": 5778,
+                        "protocol": "TCP",
+                        "targetPort": 5778
+                    }
+                ],
+                "selector": {
+                    "app.kubernetes.io/component": "all-in-one",
+                    "app.kubernetes.io/name": "jaeger"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-08-28T09:03:57Z",
+                "labels": {
+                    "app": "jaeger",
+                    "app.kubernetes.io/component": "collector",
+                    "app.kubernetes.io/name": "jaeger"
+                },
+                "name": "jaeger-collector",
+                "namespace": "object-model",
+                "resourceVersion": "11130593",
+                "selfLink": "/api/v1/namespaces/object-model/services/jaeger-collector",
+                "uid": "58872f88-4349-4d3b-8d4b-b915d3ebe7f0"
+            },
+            "spec": {
+                "clusterIP": "10.109.138.251",
+                "ports": [
+                    {
+                        "name": "jaeger-collector-tchannel",
+                        "port": 14267,
+                        "protocol": "TCP",
+                        "targetPort": 14267
+                    },
+                    {
+                        "name": "jaeger-collector-http",
+                        "port": 14268,
+                        "protocol": "TCP",
+                        "targetPort": 14268
+                    },
+                    {
+                        "name": "jaeger-collector-zipkin",
+                        "port": 9411,
+                        "protocol": "TCP",
+                        "targetPort": 9411
+                    }
+                ],
+                "selector": {
+                    "app.kubernetes.io/component": "all-in-one",
+                    "app.kubernetes.io/name": "jaeger"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-08-28T09:03:57Z",
+                "labels": {
+                    "app": "jaeger",
+                    "app.kubernetes.io/component": "query",
+                    "app.kubernetes.io/name": "jaeger"
+                },
+                "name": "jaeger-query",
+                "namespace": "object-model",
+                "resourceVersion": "11130588",
+                "selfLink": "/api/v1/namespaces/object-model/services/jaeger-query",
+                "uid": "0c02520a-10f4-46be-8bce-3bae3a7bbc5a"
+            },
+            "spec": {
+                "clusterIP": "10.104.187.237",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "query-http",
+                        "nodePort": 31309,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 16686
+                    }
+                ],
+                "selector": {
+                    "app.kubernetes.io/component": "all-in-one",
+                    "app.kubernetes.io/name": "jaeger"
+                },
+                "sessionAffinity": "None",
+                "type": "LoadBalancer"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:44:43Z",
+                "name": "nsiloader",
+                "namespace": "object-model",
+                "resourceVersion": "6980",
+                "selfLink": "/api/v1/namespaces/object-model/services/nsiloader",
+                "uid": "6ce0508d-9a49-41d1-90b0-a770d77f2ff7"
+            },
+            "spec": {
+                "clusterIP": "10.109.77.155",
+                "ports": [
+                    {
+                        "name": "nsiloader-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8100
+                    }
+                ],
+                "selector": {
+                    "app": "nsiloader"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:44:44Z",
+                "name": "object",
+                "namespace": "object-model",
+                "resourceVersion": "3084306",
+                "selfLink": "/api/v1/namespaces/object-model/services/object",
+                "uid": "c6f882e3-d9f8-459c-8267-8f84aa7cfdad"
+            },
+            "spec": {
+                "clusterIP": "10.102.46.222",
+                "ports": [
+                    {
+                        "name": "object-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "object"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:44:46Z",
+                "name": "process",
+                "namespace": "object-model",
+                "resourceVersion": "7015",
+                "selfLink": "/api/v1/namespaces/object-model/services/process",
+                "uid": "785ab9a1-48b6-4a65-b9e3-476e1c0c0563"
+            },
+            "spec": {
+                "clusterIP": "10.103.237.196",
+                "ports": [
+                    {
+                        "name": "process-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "process"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:44:47Z",
+                "name": "properties",
+                "namespace": "object-model",
+                "resourceVersion": "7036",
+                "selfLink": "/api/v1/namespaces/object-model/services/properties",
+                "uid": "1b192718-1ed8-4dd4-9bab-7d0f96c6dfd0"
+            },
+            "spec": {
+                "clusterIP": "10.103.142.4",
+                "ports": [
+                    {
+                        "name": "properties-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "properties"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-08-28T06:05:10Z",
+                "name": "properties-view",
+                "namespace": "object-model",
+                "resourceVersion": "11112442",
+                "selfLink": "/api/v1/namespaces/object-model/services/properties-view",
+                "uid": "3469a44d-5b34-42aa-a885-e4b371c32273"
+            },
+            "spec": {
+                "clusterIP": "10.110.158.153",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "properties-view-api",
+                        "nodePort": 30963,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "properties-view"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:44:48Z",
+                "name": "propertydata",
+                "namespace": "object-model",
+                "resourceVersion": "7060",
+                "selfLink": "/api/v1/namespaces/object-model/services/propertydata",
+                "uid": "e385dfe0-b545-40df-9339-fb3ff223d4e4"
+            },
+            "spec": {
+                "clusterIP": "10.104.206.161",
+                "ports": [
+                    {
+                        "name": "propertydata-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "propertydata"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-11-12T10:57:01Z",
+                "labels": {
+                    "app": "sm-directories"
+                },
+                "name": "sm-directories",
+                "namespace": "object-model",
+                "resourceVersion": "21658977",
+                "selfLink": "/api/v1/namespaces/object-model/services/sm-directories",
+                "uid": "a805328d-0c0e-4903-a77e-a5d83679f3c2"
+            },
+            "spec": {
+                "clusterIP": "10.106.14.164",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "sm-directories-api",
+                        "nodePort": 30224,
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "sm-directories"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-07-15T11:09:02Z",
+                "labels": {
+                    "app": "sm-operationdefinition"
+                },
+                "name": "sm-operationdefinition",
+                "namespace": "object-model",
+                "resourceVersion": "4926088",
+                "selfLink": "/api/v1/namespaces/object-model/services/sm-operationdefinition",
+                "uid": "a1fd3914-a5a2-442a-a434-ead3365c6310"
+            },
+            "spec": {
+                "clusterIP": "10.97.175.82",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "sm-operationdefinition-api",
+                        "nodePort": 30545,
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "sm-operationdefinition"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-09-04T11:56:05Z",
+                "labels": {
+                    "app": "sm-operationperformance"
+                },
+                "name": "sm-operationperformance",
+                "namespace": "object-model",
+                "resourceVersion": "12140779",
+                "selfLink": "/api/v1/namespaces/object-model/services/sm-operationperformance",
+                "uid": "0d313afd-1214-4b74-af11-b6320eb95901"
+            },
+            "spec": {
+                "clusterIP": "10.108.154.45",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "sm-operationperformance-api",
+                        "nodePort": 30548,
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "sm-operationperformance"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-09-04T11:56:04Z",
+                "labels": {
+                    "app": "sm-operationsschedule"
+                },
+                "name": "sm-operationsschedule",
+                "namespace": "object-model",
+                "resourceVersion": "12140758",
+                "selfLink": "/api/v1/namespaces/object-model/services/sm-operationsschedule",
+                "uid": "fdd9ea4e-a6a6-4504-8fcd-88335745e2b9"
+            },
+            "spec": {
+                "clusterIP": "10.101.202.93",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "sm-operationsschedule-api",
+                        "nodePort": 30547,
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "sm-operationsschedule"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-07-02T09:04:30Z",
+                "labels": {
+                    "app": "sm-workdefinition"
+                },
+                "name": "sm-workdefinition",
+                "namespace": "object-model",
+                "resourceVersion": "3084620",
+                "selfLink": "/api/v1/namespaces/object-model/services/sm-workdefinition",
+                "uid": "75623931-0ca5-41ed-8b94-9e81d19f1920"
+            },
+            "spec": {
+                "clusterIP": "10.100.3.77",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "sm-workdefinition-api",
+                        "nodePort": 30244,
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "sm-workdefinition"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-07-17T07:10:56Z",
+                "labels": {
+                    "app": "sm-workperformance"
+                },
+                "name": "sm-workperformance",
+                "namespace": "object-model",
+                "resourceVersion": "5184847",
+                "selfLink": "/api/v1/namespaces/object-model/services/sm-workperformance",
+                "uid": "34c332e1-e329-4f86-8280-a67126e8416b"
+            },
+            "spec": {
+                "clusterIP": "10.106.116.196",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "sm-workperformance-api",
+                        "nodePort": 30546,
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "sm-workperformance"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-11-12T10:57:02Z",
+                "labels": {
+                    "app": "sm-workschedule"
+                },
+                "name": "sm-workschedule",
+                "namespace": "object-model",
+                "resourceVersion": "21658986",
+                "selfLink": "/api/v1/namespaces/object-model/services/sm-workschedule",
+                "uid": "65089e65-6d86-4dc1-9faa-cbeba3563004"
+            },
+            "spec": {
+                "clusterIP": "10.98.60.213",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "sm-workschedule-api",
+                        "nodePort": 30234,
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "sm-workschedule"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:44:50Z",
+                "name": "testspecification",
+                "namespace": "object-model",
+                "resourceVersion": "7082",
+                "selfLink": "/api/v1/namespaces/object-model/services/testspecification",
+                "uid": "fd1bdc76-3131-4711-8a70-6abf7a50438c"
+            },
+            "spec": {
+                "clusterIP": "10.97.38.195",
+                "ports": [
+                    {
+                        "name": "testspecification-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "testspecification"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:44:51Z",
+                "name": "uoms",
+                "namespace": "object-model",
+                "resourceVersion": "7113",
+                "selfLink": "/api/v1/namespaces/object-model/services/uoms",
+                "uid": "4c8a6987-68ae-4fde-8ccd-21133c2375fe"
+            },
+            "spec": {
+                "clusterIP": "10.111.242.9",
+                "ports": [
+                    {
+                        "name": "uoms-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "uoms"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:44:52Z",
+                "name": "valuetypes",
+                "namespace": "object-model",
+                "resourceVersion": "7132",
+                "selfLink": "/api/v1/namespaces/object-model/services/valuetypes",
+                "uid": "5027b137-827d-427f-810f-615a738976f0"
+            },
+            "spec": {
+                "clusterIP": "10.108.216.97",
+                "ports": [
+                    {
+                        "name": "valuetypes-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "valuetypes"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"zif-om-om2excel\"},\"name\":\"zif-om-om2excel\",\"namespace\":\"object-model\",\"resourceVersion\":\"15111030\"},\"spec\":{\"ports\":[{\"port\":80,\"protocol\":\"TCP\",\"targetPort\":8089}],\"selector\":{\"app\":\"zif-om-om2excel\"},\"sessionAffinity\":\"None\",\"type\":\"ClusterIP\"},\"status\":{\"loadBalancer\":{}}}\n"
+                },
+                "creationTimestamp": "2020-12-30T10:17:33Z",
+                "labels": {
+                    "app": "zif-om-om2excel"
+                },
+                "name": "zif-om-om2excel",
+                "namespace": "object-model",
+                "resourceVersion": "28259868",
+                "selfLink": "/api/v1/namespaces/object-model/services/zif-om-om2excel",
+                "uid": "6a782404-9612-4946-a952-142d1936f861"
+            },
+            "spec": {
+                "clusterIP": "10.103.231.136",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "zif-om-om2excel"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"creationTimestamp\":\"2020-11-12T10:57:02Z\",\"labels\":{\"app\":\"zif-sm-testspecification\"},\"name\":\"zif-sm-testspecification\",\"namespace\":\"object-model\"},\"spec\":{\"externalTrafficPolicy\":\"Cluster\",\"ports\":[{\"name\":\"zif-sm-testspecification-api\",\"nodePort\":30235,\"port\":5000,\"protocol\":\"TCP\",\"targetPort\":5000}],\"selector\":{\"app\":\"zif-sm-testspecification\"},\"sessionAffinity\":\"None\",\"type\":\"NodePort\"},\"status\":{\"loadBalancer\":{}}}\n"
+                },
+                "creationTimestamp": "2021-02-24T13:36:50Z",
+                "labels": {
+                    "app": "zif-sm-testspecification"
+                },
+                "name": "zif-sm-testspecification",
+                "namespace": "object-model",
+                "resourceVersion": "36373266",
+                "selfLink": "/api/v1/namespaces/object-model/services/zif-sm-testspecification",
+                "uid": "0c983f4f-07c1-4525-a162-fd700ca78dd3"
+            },
+            "spec": {
+                "clusterIP": "10.106.255.147",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "zif-sm-testspecification-api",
+                        "nodePort": 30235,
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "zif-sm-testspecification"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-08-28T09:03:57Z",
+                "labels": {
+                    "app": "jaeger",
+                    "app.kubernetes.io/component": "zipkin",
+                    "app.kubernetes.io/name": "jaeger"
+                },
+                "name": "zipkin",
+                "namespace": "object-model",
+                "resourceVersion": "11130597",
+                "selfLink": "/api/v1/namespaces/object-model/services/zipkin",
+                "uid": "c1968d54-a7bd-4a12-b6a3-51598a3356df"
+            },
+            "spec": {
+                "clusterIP": "None",
+                "ports": [
+                    {
+                        "name": "jaeger-collector-zipkin",
+                        "port": 9411,
+                        "protocol": "TCP",
+                        "targetPort": 9411
+                    }
+                ],
+                "selector": {
+                    "app.kubernetes.io/component": "all-in-one",
+                    "app.kubernetes.io/name": "jaeger"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:49Z",
+                "name": "nginx",
+                "namespace": "proxy",
+                "resourceVersion": "7992",
+                "selfLink": "/api/v1/namespaces/proxy/services/nginx",
+                "uid": "48be7e77-65ed-4d24-8301-297f43bece93"
+            },
+            "spec": {
+                "clusterIP": "10.109.47.243",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "nginx",
+                        "nodePort": 31213,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 80
+                    },
+                    {
+                        "name": "nginx2",
+                        "nodePort": 31289,
+                        "port": 6060,
+                        "protocol": "TCP",
+                        "targetPort": 6060
+                    }
+                ],
+                "selector": {
+                    "app": "nginx"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:43Z",
+                "name": "redis",
+                "namespace": "redis",
+                "resourceVersion": "7790",
+                "selfLink": "/api/v1/namespaces/redis/services/redis",
+                "uid": "c15478f1-c3bd-409d-8467-ab27375debfb"
+            },
+            "spec": {
+                "clusterIP": "10.108.140.32",
+                "ports": [
+                    {
+                        "name": "6379",
+                        "port": 6379,
+                        "protocol": "TCP",
+                        "targetPort": 6379
+                    }
+                ],
+                "selector": {
+                    "app": "redis"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:45:41Z",
+                "name": "reporting",
+                "namespace": "reporting",
+                "resourceVersion": "9589847",
+                "selfLink": "/api/v1/namespaces/reporting/services/reporting",
+                "uid": "8a7ef9ba-85aa-4644-a905-70906420fa3a"
+            },
+            "spec": {
+                "clusterIP": "10.100.213.235",
+                "ports": [
+                    {
+                        "name": "reporting-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 10001
+                    }
+                ],
+                "selector": {
+                    "app": "reporting"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T14:41:08Z",
+                "name": "spark-m",
+                "namespace": "spark",
+                "resourceVersion": "20957",
+                "selfLink": "/api/v1/namespaces/spark/services/spark-m",
+                "uid": "528b1586-4893-44f0-8f08-d327843c7295"
+            },
+            "spec": {
+                "clusterIP": "10.110.61.128",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "spark-ui",
+                        "nodePort": 30692,
+                        "port": 18080,
+                        "protocol": "TCP",
+                        "targetPort": 18080
+                    },
+                    {
+                        "name": "spark",
+                        "nodePort": 32437,
+                        "port": 7077,
+                        "protocol": "TCP",
+                        "targetPort": 7077
+                    },
+                    {
+                        "name": "livy-ui",
+                        "nodePort": 30477,
+                        "port": 8998,
+                        "protocol": "TCP",
+                        "targetPort": 8998
+                    },
+                    {
+                        "name": "livy",
+                        "nodePort": 30112,
+                        "port": 10000,
+                        "protocol": "TCP",
+                        "targetPort": 10000
+                    }
+                ],
+                "selector": {
+                    "app": "spark-m"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T14:41:08Z",
+                "name": "spark-w",
+                "namespace": "spark",
+                "resourceVersion": "20973",
+                "selfLink": "/api/v1/namespaces/spark/services/spark-w",
+                "uid": "9069b9df-e3ef-49b9-9e03-f18c5241e7a3"
+            },
+            "spec": {
+                "clusterIP": "10.102.34.193",
+                "ports": [
+                    {
+                        "name": "8081",
+                        "port": 8081,
+                        "protocol": "TCP",
+                        "targetPort": 8081
+                    }
+                ],
+                "selector": {
+                    "app": "spark-w"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T17:23:08Z",
+                "name": "superset",
+                "namespace": "superset",
+                "resourceVersion": "186832",
+                "selfLink": "/api/v1/namespaces/superset/services/superset",
+                "uid": "8934000f-5f85-4cd1-a1d3-4a082d66efdc"
+            },
+            "spec": {
+                "clusterIP": "10.98.15.223",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "nodePort": 31249,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8088
+                    }
+                ],
+                "selector": {
+                    "app": "superset"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T08:18:39Z",
+                "labels": {
+                    "app": "consumerhost-service"
+                },
+                "name": "consumerhost-service",
+                "namespace": "tsds",
+                "resourceVersion": "129660",
+                "selfLink": "/api/v1/namespaces/tsds/services/consumerhost-service",
+                "uid": "ede08b30-d613-44cd-8938-d473bc535d52"
+            },
+            "spec": {
+                "clusterIP": "10.109.163.241",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "consumerhost-service-api",
+                        "nodePort": 31201,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 5100
+                    }
+                ],
+                "selector": {
+                    "backend": "consumerhost-service"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T08:18:40Z",
+                "labels": {
+                    "app": "data-service"
+                },
+                "name": "data-service",
+                "namespace": "tsds",
+                "resourceVersion": "129677",
+                "selfLink": "/api/v1/namespaces/tsds/services/data-service",
+                "uid": "13cc6d13-b0db-427a-b8f0-67f847cb99ef"
+            },
+            "spec": {
+                "clusterIP": "10.104.194.169",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "data-service-api",
+                        "nodePort": 31202,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 5100
+                    }
+                ],
+                "selector": {
+                    "backend": "data-service"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T08:18:41Z",
+                "labels": {
+                    "app": "metadata-service"
+                },
+                "name": "metadata-service",
+                "namespace": "tsds",
+                "resourceVersion": "129709",
+                "selfLink": "/api/v1/namespaces/tsds/services/metadata-service",
+                "uid": "d5240eb3-0c90-4342-a926-5962a85d9d6a"
+            },
+            "spec": {
+                "clusterIP": "10.100.185.53",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "metadata-service-api",
+                        "nodePort": 31203,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 5200
+                    }
+                ],
+                "selector": {
+                    "app": "metadata-service"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T08:18:43Z",
+                "labels": {
+                    "app": "subscription-service"
+                },
+                "name": "subscription-service",
+                "namespace": "tsds",
+                "resourceVersion": "129732",
+                "selfLink": "/api/v1/namespaces/tsds/services/subscription-service",
+                "uid": "6487a8bd-b69c-4ffa-b03e-1435ff90e61c"
+            },
+            "spec": {
+                "clusterIP": "10.104.232.107",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "subscription-service-api",
+                        "nodePort": 31204,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 5300
+                    }
+                ],
+                "selector": {
+                    "app": "subscription-service"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"cmn-import\"},\"name\":\"cmn-import\",\"namespace\":\"udl\"},\"spec\":{\"ports\":[{\"name\":\"api\",\"port\":2552,\"protocol\":\"TCP\",\"targetPort\":2552}],\"selector\":{\"app\":\"cmn-import\"},\"type\":\"ClusterIP\"}}\n"
+                },
+                "creationTimestamp": "2020-12-14T06:37:34Z",
+                "labels": {
+                    "app": "cmn-import"
+                },
+                "name": "cmn-import",
+                "namespace": "udl",
+                "resourceVersion": "26056719",
+                "selfLink": "/api/v1/namespaces/udl/services/cmn-import",
+                "uid": "81345c59-7098-422a-a341-f2ec71228eda"
+            },
+            "spec": {
+                "clusterIP": "10.109.203.242",
+                "ports": [
+                    {
+                        "name": "api",
+                        "port": 2552,
+                        "protocol": "TCP",
+                        "targetPort": 2552
+                    }
+                ],
+                "selector": {
+                    "app": "cmn-import"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T12:08:09Z",
+                "name": "dfa-loader",
+                "namespace": "udl",
+                "resourceVersion": "152272",
+                "selfLink": "/api/v1/namespaces/udl/services/dfa-loader",
+                "uid": "1266aabd-9050-405a-8034-921af5e03eb5"
+            },
+            "spec": {
+                "clusterIP": "None",
+                "ports": [
+                    {
+                        "name": "dfa-loader",
+                        "port": 2552,
+                        "protocol": "TCP",
+                        "targetPort": 2552
+                    }
+                ],
+                "selector": {
+                    "app": "dfa-loader"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T12:08:10Z",
+                "name": "dfa-tsds",
+                "namespace": "udl",
+                "resourceVersion": "152302",
+                "selfLink": "/api/v1/namespaces/udl/services/dfa-tsds",
+                "uid": "3a6f2d05-78c3-4eb8-b94f-25197b5af61d"
+            },
+            "spec": {
+                "clusterIP": "None",
+                "ports": [
+                    {
+                        "name": "dfa-tsds",
+                        "port": 2552,
+                        "protocol": "TCP",
+                        "targetPort": 2552
+                    }
+                ],
+                "selector": {
+                    "app": "dfa-tsds"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T12:08:17Z",
+                "labels": {
+                    "app": "dfa-webapi"
+                },
+                "name": "dfa-webapi",
+                "namespace": "udl",
+                "resourceVersion": "4220251",
+                "selfLink": "/api/v1/namespaces/udl/services/dfa-webapi",
+                "uid": "0fe1950e-70be-4aa2-a108-a80e8bfc8207"
+            },
+            "spec": {
+                "clusterIP": "10.111.237.62",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "dfa-webapi",
+                        "nodePort": 31003,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "dfa-webapi"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-10-29T10:39:52Z",
+                "name": "dfa-zom",
+                "namespace": "udl",
+                "resourceVersion": "19747425",
+                "selfLink": "/api/v1/namespaces/udl/services/dfa-zom",
+                "uid": "9ec60ff9-5aac-4941-9ac8-a8adc7d7b621"
+            },
+            "spec": {
+                "clusterIP": "None",
+                "ports": [
+                    {
+                        "name": "dfa-zom",
+                        "port": 2552,
+                        "protocol": "TCP",
+                        "targetPort": 2552
+                    }
+                ],
+                "selector": {
+                    "app": "dfa-zom"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T12:08:14Z",
+                "labels": {
+                    "app": "dsentity-webapi"
+                },
+                "name": "dsentity-webapi",
+                "namespace": "udl",
+                "resourceVersion": "4220238",
+                "selfLink": "/api/v1/namespaces/udl/services/dsentity-webapi",
+                "uid": "91bbf653-d7f2-4a36-9cb1-f0e443193165"
+            },
+            "spec": {
+                "clusterIP": "10.108.107.218",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "dsentity-webapi",
+                        "nodePort": 31001,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "dsentity-webapi"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T12:08:06Z",
+                "name": "mds-loader",
+                "namespace": "udl",
+                "resourceVersion": "152213",
+                "selfLink": "/api/v1/namespaces/udl/services/mds-loader",
+                "uid": "0f00b0fb-130c-47a8-b792-f67be19d6820"
+            },
+            "spec": {
+                "clusterIP": "None",
+                "ports": [
+                    {
+                        "name": "mds-loader",
+                        "port": 2552,
+                        "protocol": "TCP",
+                        "targetPort": 2552
+                    }
+                ],
+                "selector": {
+                    "app": "mds-loader"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T12:08:08Z",
+                "name": "mds-tsds",
+                "namespace": "udl",
+                "resourceVersion": "152242",
+                "selfLink": "/api/v1/namespaces/udl/services/mds-tsds",
+                "uid": "cd8bee27-4b24-4c26-ac01-5c68bbbb81b5"
+            },
+            "spec": {
+                "clusterIP": "None",
+                "ports": [
+                    {
+                        "name": "mds-tsds",
+                        "port": 2552,
+                        "protocol": "TCP",
+                        "targetPort": 2552
+                    }
+                ],
+                "selector": {
+                    "app": "mds-tsds"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T12:08:18Z",
+                "labels": {
+                    "app": "mds-webapi"
+                },
+                "name": "mds-webapi",
+                "namespace": "udl",
+                "resourceVersion": "4220256",
+                "selfLink": "/api/v1/namespaces/udl/services/mds-webapi",
+                "uid": "44449cd5-b215-4ba7-a7b1-389b25eb5a95"
+            },
+            "spec": {
+                "clusterIP": "10.109.123.165",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "mds-webapi",
+                        "nodePort": 31004,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "mds-webapi"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T12:08:05Z",
+                "name": "node-metric-sender",
+                "namespace": "udl",
+                "resourceVersion": "152195",
+                "selfLink": "/api/v1/namespaces/udl/services/node-metric-sender",
+                "uid": "a4883182-33a0-4663-acf9-1bee522299fb"
+            },
+            "spec": {
+                "clusterIP": "None",
+                "ports": [
+                    {
+                        "name": "node-metric-sender",
+                        "port": 2552,
+                        "protocol": "TCP",
+                        "targetPort": 2552
+                    }
+                ],
+                "selector": {
+                    "app": "node-metric-sender"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T12:08:20Z",
+                "labels": {
+                    "app": "om2udl"
+                },
+                "name": "om2udl",
+                "namespace": "udl",
+                "resourceVersion": "4220261",
+                "selfLink": "/api/v1/namespaces/udl/services/om2udl",
+                "uid": "2d1f89d6-5ff3-4557-910f-953bdc82e29d"
+            },
+            "spec": {
+                "clusterIP": "10.111.171.206",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "om2udl",
+                        "nodePort": 31005,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "om2udl"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"rabbitmq\"},\"name\":\"rabbitmq\",\"namespace\":\"udl\"},\"spec\":{\"clusterIP\":\"None\",\"ports\":[{\"name\":\"rabbitmq\",\"port\":5672,\"protocol\":\"TCP\",\"targetPort\":5672},{\"name\":\"rabbitmq-api\",\"port\":80,\"protocol\":\"TCP\",\"targetPort\":15672}],\"selector\":{\"app\":\"rabbitmq\"},\"type\":\"ClusterIP\"}}\n"
+                },
+                "creationTimestamp": "2020-11-17T14:30:11Z",
+                "labels": {
+                    "app": "rabbitmq"
+                },
+                "name": "rabbitmq",
+                "namespace": "udl",
+                "resourceVersion": "22366560",
+                "selfLink": "/api/v1/namespaces/udl/services/rabbitmq",
+                "uid": "23745b06-8531-4aaf-b9a6-b2060c9bae23"
+            },
+            "spec": {
+                "clusterIP": "None",
+                "ports": [
+                    {
+                        "name": "rabbitmq",
+                        "port": 5672,
+                        "protocol": "TCP",
+                        "targetPort": 5672
+                    },
+                    {
+                        "name": "rabbitmq-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 15672
+                    }
+                ],
+                "selector": {
+                    "app": "rabbitmq"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T13:14:51Z",
+                "name": "rtd-data-sorter",
+                "namespace": "udl",
+                "resourceVersion": "162263",
+                "selfLink": "/api/v1/namespaces/udl/services/rtd-data-sorter",
+                "uid": "7ebffaaa-d0b8-4141-ad65-be120624710d"
+            },
+            "spec": {
+                "clusterIP": "None",
+                "ports": [
+                    {
+                        "name": "rtd-data-sorter",
+                        "port": 2552,
+                        "protocol": "TCP",
+                        "targetPort": 2552
+                    }
+                ],
+                "selector": {
+                    "app": "rtd-data-sorter"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T12:08:12Z",
+                "name": "rtd-loader",
+                "namespace": "udl",
+                "resourceVersion": "152323",
+                "selfLink": "/api/v1/namespaces/udl/services/rtd-loader",
+                "uid": "dc4cb267-1469-4944-9bdf-9495539051d2"
+            },
+            "spec": {
+                "clusterIP": "None",
+                "ports": [
+                    {
+                        "name": "rtd-loader",
+                        "port": 2552,
+                        "protocol": "TCP",
+                        "targetPort": 2552
+                    }
+                ],
+                "selector": {
+                    "app": "rtd-loader"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T12:08:13Z",
+                "name": "rtd-tsds",
+                "namespace": "udl",
+                "resourceVersion": "152348",
+                "selfLink": "/api/v1/namespaces/udl/services/rtd-tsds",
+                "uid": "d0571367-319d-434a-a9c7-838a8cea7f90"
+            },
+            "spec": {
+                "clusterIP": "None",
+                "ports": [
+                    {
+                        "name": "rtd-tsds",
+                        "port": 2552,
+                        "protocol": "TCP",
+                        "targetPort": 2552
+                    }
+                ],
+                "selector": {
+                    "app": "rtd-tsds"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-11T12:08:16Z",
+                "labels": {
+                    "app": "rtd-webapi"
+                },
+                "name": "rtd-webapi",
+                "namespace": "udl",
+                "resourceVersion": "4220247",
+                "selfLink": "/api/v1/namespaces/udl/services/rtd-webapi",
+                "uid": "dbd8b996-bfab-4ea3-814a-c2a4194eb53f"
+            },
+            "spec": {
+                "clusterIP": "10.109.79.66",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "rtd-webapi",
+                        "nodePort": 31002,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "rtd-webapi"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"name\":\"seed\",\"namespace\":\"udl\"},\"spec\":{\"ports\":[{\"name\":\"seed\",\"port\":2551,\"protocol\":\"TCP\",\"targetPort\":2551}],\"selector\":{\"app\":\"seed\"},\"sessionAffinity\":\"None\",\"type\":\"ClusterIP\"}}\n"
+                },
+                "creationTimestamp": "2020-11-17T15:05:11Z",
+                "name": "seed",
+                "namespace": "udl",
+                "resourceVersion": "22370246",
+                "selfLink": "/api/v1/namespaces/udl/services/seed",
+                "uid": "bee9713f-17d3-435f-b9d2-383a56af280b"
+            },
+            "spec": {
+                "clusterIP": "10.98.75.191",
+                "ports": [
+                    {
+                        "name": "seed",
+                        "port": 2551,
+                        "protocol": "TCP",
+                        "targetPort": 2551
+                    }
+                ],
+                "selector": {
+                    "app": "seed"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T11:11:31Z",
+                "labels": {
+                    "app": "camunda"
+                },
+                "name": "camunda",
+                "namespace": "zps",
+                "resourceVersion": "289696",
+                "selfLink": "/api/v1/namespaces/zps/services/camunda",
+                "uid": "4326c6bf-848c-4c5f-9ec4-334dce1decf0"
+            },
+            "spec": {
+                "clusterIP": "10.100.236.92",
+                "ports": [
+                    {
+                        "name": "camunda-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "camunda"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-10-13T13:36:30Z",
+                "labels": {
+                    "app": "camunda-deploy"
+                },
+                "name": "camunda-deploy",
+                "namespace": "zps",
+                "resourceVersion": "17568519",
+                "selfLink": "/api/v1/namespaces/zps/services/camunda-deploy",
+                "uid": "d9555f97-f561-411a-8fea-9b0205ab605d"
+            },
+            "spec": {
+                "clusterIP": "10.96.94.90",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "camunda-deploy-api",
+                        "nodePort": 30099,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "camunda-deploy"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T10:27:27Z",
+                "labels": {
+                    "app": "material-lot"
+                },
+                "name": "material-lot",
+                "namespace": "zps",
+                "resourceVersion": "2017097",
+                "selfLink": "/api/v1/namespaces/zps/services/material-lot",
+                "uid": "e578176b-a7e3-4fe0-b7a8-f33dabc35303"
+            },
+            "spec": {
+                "clusterIP": "10.107.183.254",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "material-lot-api",
+                        "nodePort": 30222,
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "material-lot"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"minio\"},\"name\":\"minio\",\"namespace\":\"zps\"},\"spec\":{\"ports\":[{\"name\":\"api\",\"port\":80,\"protocol\":\"TCP\",\"targetPort\":9000}],\"selector\":{\"app\":\"minio\"},\"type\":\"ClusterIP\"}}\n"
+                },
+                "creationTimestamp": "2021-02-18T10:00:44Z",
+                "labels": {
+                    "app": "minio"
+                },
+                "name": "minio",
+                "namespace": "zps",
+                "resourceVersion": "35509122",
+                "selfLink": "/api/v1/namespaces/zps/services/minio",
+                "uid": "d6f0e0aa-5c52-4840-95b0-11e4adb9382d"
+            },
+            "spec": {
+                "clusterIP": "10.103.79.247",
+                "ports": [
+                    {
+                        "name": "api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 9000
+                    }
+                ],
+                "selector": {
+                    "app": "minio"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-08-19T12:25:35Z",
+                "labels": {
+                    "app": "ps-dx-datamart-epm"
+                },
+                "name": "ps-dx-datamart-epm",
+                "namespace": "zps",
+                "resourceVersion": "9889635",
+                "selfLink": "/api/v1/namespaces/zps/services/ps-dx-datamart-epm",
+                "uid": "4ce58708-fcf8-44bd-9721-5556f8a3530f"
+            },
+            "spec": {
+                "clusterIP": "10.101.117.52",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "ps-dx-datamart-epm-api",
+                        "nodePort": 30355,
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "ps-dx-datamart-epm"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-08-12T10:14:15Z",
+                "labels": {
+                    "app": "ps-master-spc-epm-ui"
+                },
+                "name": "ps-master-spc-epm-ui",
+                "namespace": "zps",
+                "resourceVersion": "8878834",
+                "selfLink": "/api/v1/namespaces/zps/services/ps-master-spc-epm-ui",
+                "uid": "e081c176-927a-4cc0-b3ec-bd90744d5fa9"
+            },
+            "spec": {
+                "clusterIP": "10.107.181.86",
+                "ports": [
+                    {
+                        "name": "ps-master-spc-epm-ui-api",
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "ps-master-spc-epm-ui"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-13T20:06:11Z",
+                "labels": {
+                    "app": "ps-planning"
+                },
+                "name": "ps-planning",
+                "namespace": "zps",
+                "resourceVersion": "483540",
+                "selfLink": "/api/v1/namespaces/zps/services/ps-planning",
+                "uid": "4b3df031-db42-4815-b0d3-c4fecd9c25dc"
+            },
+            "spec": {
+                "clusterIP": "10.107.231.204",
+                "ports": [
+                    {
+                        "name": "ps-planning-api",
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "ps-planning"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-08-04T12:45:09Z",
+                "labels": {
+                    "app": "ps-stand-spc-epm"
+                },
+                "name": "ps-stand-spc-epm",
+                "namespace": "zps",
+                "resourceVersion": "7785314",
+                "selfLink": "/api/v1/namespaces/zps/services/ps-stand-spc-epm",
+                "uid": "032203c3-dba7-48da-8ed1-bcd29a93189d"
+            },
+            "spec": {
+                "clusterIP": "10.102.254.162",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "ps-stand-spc-epm-api",
+                        "nodePort": 30300,
+                        "port": 8089,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "ps-stand-spc-epm"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-08-07T14:15:02Z",
+                "labels": {
+                    "app": "ps-stand-spc-epm-ui"
+                },
+                "name": "ps-stand-spc-epm-ui",
+                "namespace": "zps",
+                "resourceVersion": "8209868",
+                "selfLink": "/api/v1/namespaces/zps/services/ps-stand-spc-epm-ui",
+                "uid": "304797bc-3696-4a80-90d8-d979e21897eb"
+            },
+            "spec": {
+                "clusterIP": "10.105.41.45",
+                "ports": [
+                    {
+                        "name": "ps-stand-spc-epm-ui-api",
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "ps-stand-spc-epm-ui"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-13T22:08:17Z",
+                "labels": {
+                    "app": "ps-store"
+                },
+                "name": "ps-store",
+                "namespace": "zps",
+                "resourceVersion": "495874",
+                "selfLink": "/api/v1/namespaces/zps/services/ps-store",
+                "uid": "ef5036f1-65b0-484c-bcc0-8c685df02ccc"
+            },
+            "spec": {
+                "clusterIP": "10.96.222.58",
+                "ports": [
+                    {
+                        "name": "ps-store-api",
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "ps-store"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-13T21:31:41Z",
+                "labels": {
+                    "app": "ps-works-ui"
+                },
+                "name": "ps-works-ui",
+                "namespace": "zps",
+                "resourceVersion": "492321",
+                "selfLink": "/api/v1/namespaces/zps/services/ps-works-ui",
+                "uid": "a585d3d2-8b98-4ff1-9644-4c5c2d15a782"
+            },
+            "spec": {
+                "clusterIP": "10.101.34.14",
+                "ports": [
+                    {
+                        "name": "ps-works-ui-api",
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "ps-works-ui"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:46:24Z",
+                "labels": {
+                    "app": "ui-ps"
+                },
+                "name": "ui-ps",
+                "namespace": "zps",
+                "resourceVersion": "8493",
+                "selfLink": "/api/v1/namespaces/zps/services/ui-ps",
+                "uid": "6eace6a4-03e6-4c34-85a5-8b453087f136"
+            },
+            "spec": {
+                "clusterIP": "10.107.36.60",
+                "ports": [
+                    {
+                        "name": "ui-ps-api",
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "ui-ps"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-07-02T13:49:49Z",
+                "labels": {
+                    "app": "workflow-works"
+                },
+                "name": "workflow-works",
+                "namespace": "zps",
+                "resourceVersion": "3112395",
+                "selfLink": "/api/v1/namespaces/zps/services/workflow-works",
+                "uid": "4a1477dc-2729-4f43-85ec-cda9baf692e7"
+            },
+            "spec": {
+                "clusterIP": "10.110.104.187",
+                "ports": [
+                    {
+                        "name": "workflow-works-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 80
+                    }
+                ],
+                "selector": {
+                    "app": "workflow-works"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-10T13:46:23Z",
+                "labels": {
+                    "app": "zps"
+                },
+                "name": "zps",
+                "namespace": "zps",
+                "resourceVersion": "1964248",
+                "selfLink": "/api/v1/namespaces/zps/services/zps",
+                "uid": "16cc02b3-da00-4921-af02-f493d7be35fa"
+            },
+            "spec": {
+                "clusterIP": "10.96.174.57",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "zps-api",
+                        "nodePort": 31222,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8088
+                    }
+                ],
+                "selector": {
+                    "app": "zps"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-12-11T11:06:15Z",
+                "labels": {
+                    "app": "zui-app-ps-map-config-1c-epm"
+                },
+                "name": "zui-app-ps-map-config-1c-epm",
+                "namespace": "zps",
+                "resourceVersion": "25661634",
+                "selfLink": "/api/v1/namespaces/zps/services/zui-app-ps-map-config-1c-epm",
+                "uid": "0bb0ad32-9265-4182-80c6-64a87012fa7b"
+            },
+            "spec": {
+                "clusterIP": "10.98.19.207",
+                "ports": [
+                    {
+                        "name": "zui-app-ps-map-config-1c-epm-api",
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "zui-app-ps-map-config-1c-epm"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:27Z",
+                "labels": {
+                    "app": "admin"
+                },
+                "name": "admin",
+                "namespace": "zqa",
+                "resourceVersion": "303541",
+                "selfLink": "/api/v1/namespaces/zqa/services/admin",
+                "uid": "7faf1a4f-e47e-4071-8ee7-789f986ece32"
+            },
+            "spec": {
+                "clusterIP": "10.101.172.118",
+                "ports": [
+                    {
+                        "name": "admin-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "admin"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-14T14:29:18Z",
+                "labels": {
+                    "app": "analysisrequests"
+                },
+                "name": "analysisrequests",
+                "namespace": "zqa",
+                "resourceVersion": "936537",
+                "selfLink": "/api/v1/namespaces/zqa/services/analysisrequests",
+                "uid": "2aca540e-5b52-4ee1-a83f-b902b09bd333"
+            },
+            "spec": {
+                "clusterIP": "10.102.178.16",
+                "ports": [
+                    {
+                        "name": "analysisrequests-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "analysisrequests"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-12-04T10:37:55Z",
+                "labels": {
+                    "app": "camunda-sampling"
+                },
+                "name": "camunda-sampling",
+                "namespace": "zqa",
+                "resourceVersion": "27168882",
+                "selfLink": "/api/v1/namespaces/zqa/services/camunda-sampling",
+                "uid": "32e616aa-fcbc-4adf-9c57-8c51fd5bd4cb"
+            },
+            "spec": {
+                "clusterIP": "10.101.218.101",
+                "ports": [
+                    {
+                        "name": "camunda-sampling-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "camunda-sampling"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-14T14:29:36Z",
+                "labels": {
+                    "app": "configs-seed"
+                },
+                "name": "configs-seed",
+                "namespace": "zqa",
+                "resourceVersion": "898553",
+                "selfLink": "/api/v1/namespaces/zqa/services/configs-seed",
+                "uid": "14cffb78-14a5-4813-be4e-59dc861895bb"
+            },
+            "spec": {
+                "clusterIP": "10.105.115.67",
+                "ports": [
+                    {
+                        "name": "configs-seed-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 8089
+                    }
+                ],
+                "selector": {
+                    "app": "configs-seed"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:39:26Z",
+                "name": "envoy",
+                "namespace": "zqa",
+                "resourceVersion": "304738",
+                "selfLink": "/api/v1/namespaces/zqa/services/envoy",
+                "uid": "31f6c8a3-8679-4f24-b0d9-7363c53d8be6"
+            },
+            "spec": {
+                "clusterIP": "10.109.208.136",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "listener",
+                        "nodePort": 30211,
+                        "port": 9211,
+                        "protocol": "TCP",
+                        "targetPort": 9211
+                    },
+                    {
+                        "name": "admin",
+                        "nodePort": 30212,
+                        "port": 9901,
+                        "protocol": "TCP",
+                        "targetPort": 9901
+                    }
+                ],
+                "selector": {
+                    "app": "envoy"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-12-04T10:29:11Z",
+                "labels": {
+                    "app": "equipment"
+                },
+                "name": "equipment",
+                "namespace": "zqa",
+                "resourceVersion": "24666519",
+                "selfLink": "/api/v1/namespaces/zqa/services/equipment",
+                "uid": "f956870b-796b-488c-88cb-00b03083cbe4"
+            },
+            "spec": {
+                "clusterIP": "10.108.127.54",
+                "ports": [
+                    {
+                        "name": "equipment-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "equipment"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:38Z",
+                "labels": {
+                    "app": "generator"
+                },
+                "name": "generator",
+                "namespace": "zqa",
+                "resourceVersion": "303715",
+                "selfLink": "/api/v1/namespaces/zqa/services/generator",
+                "uid": "e0a89b58-d737-4d1d-b63e-4492f6fefc9f"
+            },
+            "spec": {
+                "clusterIP": "10.102.130.11",
+                "ports": [
+                    {
+                        "name": "generator-api",
+                        "port": 5001,
+                        "protocol": "TCP",
+                        "targetPort": 5001
+                    }
+                ],
+                "selector": {
+                    "app": "generator"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:40Z",
+                "labels": {
+                    "app": "masks"
+                },
+                "name": "masks",
+                "namespace": "zqa",
+                "resourceVersion": "303738",
+                "selfLink": "/api/v1/namespaces/zqa/services/masks",
+                "uid": "5d3534f7-5709-4dfa-8702-2e0b2bed9b9f"
+            },
+            "spec": {
+                "clusterIP": "10.101.247.92",
+                "ports": [
+                    {
+                        "name": "masks-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "masks"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-14T13:22:48Z",
+                "labels": {
+                    "app": "materials"
+                },
+                "name": "materials",
+                "namespace": "zqa",
+                "resourceVersion": "583840",
+                "selfLink": "/api/v1/namespaces/zqa/services/materials",
+                "uid": "9f90955d-2572-4cc5-91da-9f0e04a999f6"
+            },
+            "spec": {
+                "clusterIP": "10.111.247.21",
+                "ports": [
+                    {
+                        "name": "materials-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "materials"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:34Z",
+                "labels": {
+                    "app": "normdocs"
+                },
+                "name": "normdocs",
+                "namespace": "zqa",
+                "resourceVersion": "303652",
+                "selfLink": "/api/v1/namespaces/zqa/services/normdocs",
+                "uid": "fdc7457e-4608-4cfa-9f32-43d329a5f737"
+            },
+            "spec": {
+                "clusterIP": "10.103.206.177",
+                "ports": [
+                    {
+                        "name": "normdocs-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "normdocs"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:44Z",
+                "labels": {
+                    "app": "references"
+                },
+                "name": "references",
+                "namespace": "zqa",
+                "resourceVersion": "303817",
+                "selfLink": "/api/v1/namespaces/zqa/services/references",
+                "uid": "5b423738-b65f-4989-85ef-bd3b0732dfcc"
+            },
+            "spec": {
+                "clusterIP": "10.97.165.80",
+                "ports": [
+                    {
+                        "name": "references-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "references"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:35Z",
+                "labels": {
+                    "app": "samplelogs"
+                },
+                "name": "samplelogs",
+                "namespace": "zqa",
+                "resourceVersion": "303675",
+                "selfLink": "/api/v1/namespaces/zqa/services/samplelogs",
+                "uid": "935bdd00-03f8-403b-923c-5f36b05a78ab"
+            },
+            "spec": {
+                "clusterIP": "10.102.244.146",
+                "ports": [
+                    {
+                        "name": "samplelogs-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "samplelogs"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:29Z",
+                "labels": {
+                    "app": "samplemasks"
+                },
+                "name": "samplemasks",
+                "namespace": "zqa",
+                "resourceVersion": "303562",
+                "selfLink": "/api/v1/namespaces/zqa/services/samplemasks",
+                "uid": "5162555a-013a-411f-a4dc-26344e23eed7"
+            },
+            "spec": {
+                "clusterIP": "10.99.59.161",
+                "ports": [
+                    {
+                        "name": "samplemasks-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "samplemasks"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:37Z",
+                "labels": {
+                    "app": "samples"
+                },
+                "name": "samples",
+                "namespace": "zqa",
+                "resourceVersion": "303697",
+                "selfLink": "/api/v1/namespaces/zqa/services/samples",
+                "uid": "5d7a0c7e-e937-4e24-94e3-f459fdb16f1a"
+            },
+            "spec": {
+                "clusterIP": "10.104.103.182",
+                "ports": [
+                    {
+                        "name": "samples-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "samples"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:45Z",
+                "labels": {
+                    "app": "sampletemplates"
+                },
+                "name": "sampletemplates",
+                "namespace": "zqa",
+                "resourceVersion": "303832",
+                "selfLink": "/api/v1/namespaces/zqa/services/sampletemplates",
+                "uid": "6caab7ce-620d-4a87-b673-0c536e00fa02"
+            },
+            "spec": {
+                "clusterIP": "10.99.143.141",
+                "ports": [
+                    {
+                        "name": "sampletemplates-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "sampletemplates"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-14T15:29:07Z",
+                "labels": {
+                    "app": "samplingpoints"
+                },
+                "name": "samplingpoints",
+                "namespace": "zqa",
+                "resourceVersion": "898559",
+                "selfLink": "/api/v1/namespaces/zqa/services/samplingpoints",
+                "uid": "55723142-0135-4c05-82e0-73005b0bd70f"
+            },
+            "spec": {
+                "clusterIP": "10.107.133.214",
+                "ports": [
+                    {
+                        "name": "samplingpoints-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "samplingpoints"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:41Z",
+                "labels": {
+                    "app": "schedulers"
+                },
+                "name": "schedulers",
+                "namespace": "zqa",
+                "resourceVersion": "303764",
+                "selfLink": "/api/v1/namespaces/zqa/services/schedulers",
+                "uid": "f85e664f-af5d-40a9-91d2-c63258b39cd6"
+            },
+            "spec": {
+                "clusterIP": "10.96.226.16",
+                "ports": [
+                    {
+                        "name": "schedulers-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "schedulers"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:43Z",
+                "labels": {
+                    "app": "scripts"
+                },
+                "name": "scripts",
+                "namespace": "zqa",
+                "resourceVersion": "303791",
+                "selfLink": "/api/v1/namespaces/zqa/services/scripts",
+                "uid": "af0505ad-038e-45fb-bd9c-63521c9bc5d3"
+            },
+            "spec": {
+                "clusterIP": "10.110.51.211",
+                "ports": [
+                    {
+                        "name": "scripts-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "scripts"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:30Z",
+                "labels": {
+                    "app": "sequences"
+                },
+                "name": "sequences",
+                "namespace": "zqa",
+                "resourceVersion": "303584",
+                "selfLink": "/api/v1/namespaces/zqa/services/sequences",
+                "uid": "b9387b97-0ea0-43ae-aa21-94d39610b4b0"
+            },
+            "spec": {
+                "clusterIP": "10.98.103.226",
+                "ports": [
+                    {
+                        "name": "sequences-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "sequences"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:33Z",
+                "labels": {
+                    "app": "specs"
+                },
+                "name": "specs",
+                "namespace": "zqa",
+                "resourceVersion": "303626",
+                "selfLink": "/api/v1/namespaces/zqa/services/specs",
+                "uid": "92bf406a-6ccb-469c-bb84-a1fc6e7f54dc"
+            },
+            "spec": {
+                "clusterIP": "10.109.97.200",
+                "ports": [
+                    {
+                        "name": "specs-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "specs"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-14T15:29:09Z",
+                "labels": {
+                    "app": "tasks"
+                },
+                "name": "tasks",
+                "namespace": "zqa",
+                "resourceVersion": "597033",
+                "selfLink": "/api/v1/namespaces/zqa/services/tasks",
+                "uid": "f424d247-adc3-4487-a7e3-2327983e5fef"
+            },
+            "spec": {
+                "clusterIP": "10.107.36.187",
+                "ports": [
+                    {
+                        "name": "tasks-api",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "tasks"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:31Z",
+                "labels": {
+                    "app": "techs"
+                },
+                "name": "techs",
+                "namespace": "zqa",
+                "resourceVersion": "303597",
+                "selfLink": "/api/v1/namespaces/zqa/services/techs",
+                "uid": "f106e260-4d00-4dbe-a4a4-f9c80e985d95"
+            },
+            "spec": {
+                "clusterIP": "10.101.153.15",
+                "ports": [
+                    {
+                        "name": "techs-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "techs"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-16T14:50:55Z",
+                "labels": {
+                    "app": "testresultdatamart"
+                },
+                "name": "testresultdatamart",
+                "namespace": "zqa",
+                "resourceVersion": "898571",
+                "selfLink": "/api/v1/namespaces/zqa/services/testresultdatamart",
+                "uid": "4a7e5b3d-4940-461f-8e28-8afcabbebf32"
+            },
+            "spec": {
+                "clusterIP": "10.98.193.59",
+                "ports": [
+                    {
+                        "name": "testresultdatamart-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "testresultdatamart"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "creationTimestamp": "2020-06-12T13:31:47Z",
+                "labels": {
+                    "app": "ui-qa"
+                },
+                "name": "ui-qa",
+                "namespace": "zqa",
+                "resourceVersion": "35089704",
+                "selfLink": "/api/v1/namespaces/zqa/services/ui-qa",
+                "uid": "190609d8-6bd3-4eda-b6bb-255d7b89ecc3"
+            },
+            "spec": {
+                "clusterIP": "10.97.245.60",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "app": "ui-qa"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"zqa-camunda-materiallots\"},\"name\":\"zqa-camunda-materiallots\",\"namespace\":\"zqa\",\"resourceVersion\":\"26024362\",\"selfLink\":\"/api/v1/namespaces/zqa/services/zqa-camunda-materiallots\"},\"spec\":{\"ports\":[{\"name\":\"zqa-camunda-materiallots-api\",\"port\":5000,\"protocol\":\"TCP\",\"targetPort\":5000}],\"selector\":{\"app\":\"zqa-camunda-materiallots\"},\"sessionAffinity\":\"None\",\"type\":\"ClusterIP\"},\"status\":{\"loadBalancer\":{}}}\n"
+                },
+                "creationTimestamp": "2021-03-15T13:02:08Z",
+                "labels": {
+                    "app": "zqa-camunda-materiallots"
+                },
+                "name": "zqa-camunda-materiallots",
+                "namespace": "zqa",
+                "resourceVersion": "38962113",
+                "selfLink": "/api/v1/namespaces/zqa/services/zqa-camunda-materiallots",
+                "uid": "722d0cec-ebfb-4249-bc41-9ee24e7fffc0"
+            },
+            "spec": {
+                "clusterIP": "10.99.116.249",
+                "ports": [
+                    {
+                        "name": "zqa-camunda-materiallots-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "zqa-camunda-materiallots"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"zqa-contentstorage\"},\"name\":\"zqa-contentstorage\",\"namespace\":\"zqa\"},\"spec\":{\"ports\":[{\"name\":\"api\",\"port\":5000,\"protocol\":\"TCP\",\"targetPort\":5000},{\"name\":\"api2\",\"port\":5001,\"protocol\":\"TCP\",\"targetPort\":5001}],\"selector\":{\"app\":\"zqa-contentstorage\"},\"sessionAffinity\":\"None\",\"type\":\"ClusterIP\"}}\n"
+                },
+                "creationTimestamp": "2021-02-18T11:45:16Z",
+                "labels": {
+                    "app": "zqa-contentstorage"
+                },
+                "name": "zqa-contentstorage",
+                "namespace": "zqa",
+                "resourceVersion": "35516823",
+                "selfLink": "/api/v1/namespaces/zqa/services/zqa-contentstorage",
+                "uid": "1ca930e8-f6d4-4908-bb82-497f9218225f"
+            },
+            "spec": {
+                "clusterIP": "10.105.129.206",
+                "ports": [
+                    {
+                        "name": "api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    },
+                    {
+                        "name": "api2",
+                        "port": 5001,
+                        "protocol": "TCP",
+                        "targetPort": 5001
+                    }
+                ],
+                "selector": {
+                    "app": "zqa-contentstorage"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"zqa-eqp-import\"},\"name\":\"zqa-eqp-import\",\"namespace\":\"zqa\",\"resourceVersion\":\"15111030\"},\"spec\":{\"ports\":[{\"port\":80,\"protocol\":\"TCP\",\"targetPort\":5000}],\"selector\":{\"app\":\"zqa-eqp-import\"},\"sessionAffinity\":\"None\",\"type\":\"ClusterIP\"},\"status\":{\"loadBalancer\":{}}}\n"
+                },
+                "creationTimestamp": "2020-12-25T11:37:25Z",
+                "labels": {
+                    "app": "zqa-eqp-import"
+                },
+                "name": "zqa-eqp-import",
+                "namespace": "zqa",
+                "resourceVersion": "35336013",
+                "selfLink": "/api/v1/namespaces/zqa/services/zqa-eqp-import",
+                "uid": "952a3281-f0ac-49f9-a8eb-0e34067e1019"
+            },
+            "spec": {
+                "clusterIP": "10.96.195.178",
+                "ports": [
+                    {
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "zqa-eqp-import"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"zqa-spc\"},\"name\":\"zqa-spc\",\"namespace\":\"zqa\",\"resourceVersion\":\"13840\",\"selfLink\":\"/api/v1/namespaces/zqa/services/zqa-spc\"},\"spec\":{\"ports\":[{\"name\":\"zqa-spc-api\",\"port\":5000,\"protocol\":\"TCP\",\"targetPort\":5000}],\"selector\":{\"app\":\"zqa-spc\"},\"sessionAffinity\":\"None\",\"type\":\"ClusterIP\"},\"status\":{\"loadBalancer\":{}}}\n"
+                },
+                "creationTimestamp": "2021-03-09T06:31:11Z",
+                "labels": {
+                    "app": "zqa-spc"
+                },
+                "name": "zqa-spc",
+                "namespace": "zqa",
+                "resourceVersion": "38076459",
+                "selfLink": "/api/v1/namespaces/zqa/services/zqa-spc",
+                "uid": "7fa231b4-50c1-4025-81e3-d2388b75409a"
+            },
+            "spec": {
+                "clusterIP": "10.108.99.97",
+                "ports": [
+                    {
+                        "name": "zqa-spc-api",
+                        "port": 5000,
+                        "protocol": "TCP",
+                        "targetPort": 5000
+                    }
+                ],
+                "selector": {
+                    "app": "zqa-spc"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}
